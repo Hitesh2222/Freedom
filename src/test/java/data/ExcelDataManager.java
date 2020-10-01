@@ -1,2 +1,4 @@
-package data;public class ExcelDataManager {
+package data;
+
+public class ExcelDataManager {
 }
