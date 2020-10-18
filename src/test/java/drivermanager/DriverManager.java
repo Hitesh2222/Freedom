@@ -4,6 +4,7 @@ import config.Config;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class DriverManager {
     private WebDriver driver;
@@ -15,6 +16,7 @@ public class DriverManager {
                         System.setProperty(BrowserType.CHROME_PROPERTY,Config.getProperty("chrome.executable"));//set up the property
                         // set up a driver
                         driver = new ChromeDriver();
+                WebDriverWait wait = new WebDriverWait(driver,20);
             }
             else if (Config.getProperty("browser.name").equalsIgnoreCase(BrowserType.FIREFOX)){
                 System.setProperty(BrowserType.FIREFOX_PROPERTY,Config.getProperty("firefox.executable"));
@@ -24,6 +26,7 @@ public class DriverManager {
             else {
                 System.setProperty(BrowserType.CHROME_PROPERTY,Config.getProperty("chrome.executable"));
                 driver = new ChromeDriver();
+                WebDriverWait wait = new WebDriverWait(driver,20);
             }
 
     }

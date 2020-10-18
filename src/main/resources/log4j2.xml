@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="INFO">
+<Configuration status="info">
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </Console>
-        <RollingFile name="RollingFileAppender" fileName="app.log"
-                     filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+        <File name="File1" fileName="output.log" bufferedIO="false">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
-        </RollingFile>
-        <File name="File1" fileName="output.log">
         </File>
     </Appenders>
     <Loggers>
-        <Root level="info">
+        <Root level="error">
             <AppenderRef ref="Console"/>
         </Root>
-        <Root level="INFO">
-            <AppenderRef ref="RollingFileAppender"/>
+        <Root level="info">
+            <AppenderRef ref="File1"/>
         </Root>
     </Loggers>
 </Configuration>
